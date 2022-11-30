@@ -1,16 +1,30 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 *{
     padding: 0;
     margin: 0 auto;
+    font-family: 'Inter', sans-serif;
 }
 button, a{
     cursor: pointer;
 }
 body{
     background-color: var(--grey-4);
+}
+label{
+    display: block;
+}
+.appMain{
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 :root{
