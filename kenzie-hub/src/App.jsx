@@ -4,6 +4,7 @@ import GlobalStyles from './styles/global';
 
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <main className='appMain'>
       {/* <LoginPage/> */}
 
-      <RegisterPage/>
+      {/* <RegisterPage/> */}
+
+      <MainPage/>
 
       </main>
 
