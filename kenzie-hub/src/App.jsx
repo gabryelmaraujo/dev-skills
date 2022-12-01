@@ -14,9 +14,9 @@ function App() {
       <main className='appMain'>
       {/* <LoginPage/> */}
 
-      {/* <RegisterPage/> */}
+      <RegisterPage/>
 
-      <MainPage/>
+      {/* <MainPage/> */}
 
       </main>
 

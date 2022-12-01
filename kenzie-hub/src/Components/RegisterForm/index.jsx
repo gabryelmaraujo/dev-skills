@@ -28,8 +28,8 @@ const RegisterForm = () => {
       <input type="tel" id="telephone" placeholder="Telefone para contato..." />
 
       <label htmlFor="moduleSelect">Módulo</label>
-      <select name="" id="moduleSelect">
-        <option value="0" selected disabled>
+      <select name="moduleSelect" id="moduleSelect" defaultValue={"default"}>
+        <option value="default" disabled>
           Selecione o seu módulo
         </option>
         <option value="M1">Módulo 1</option>
