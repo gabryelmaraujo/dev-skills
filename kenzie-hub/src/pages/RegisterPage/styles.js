@@ -5,6 +5,8 @@ const RegisterPageContainer = styled.div`
 
     width: 23.75rem;
 
+    margin-top: 26rem;
+
     .registerPageHeader{
         display: flex;
 
@@ -18,6 +20,8 @@ const RegisterPageContainer = styled.div`
 
         border: 0.063rem solid var(--grey-3);
         border-radius: 0.25rem;
+
+        margin-bottom: 2rem;
     }
 
     .registerFormHeader{
