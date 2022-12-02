@@ -7,7 +7,7 @@ import LoginForm from "../../Components/LoginForm";
 import LoginPageContainer from "./styles";
 import GoToRegisterBttn from "../../Components/GoToRegisterBttn";
 
-const LoginPage = () => {
+const LoginPage = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus}) => {
 
 return (
     <LoginPageContainer>
@@ -21,7 +21,7 @@ return (
                     <p>Login</p>
                 </header>
 
-                <LoginForm/>
+                <LoginForm loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus}/>
 
                 <footer className="loginFormFooter">
                     <div className="formFooterTitleDiv">

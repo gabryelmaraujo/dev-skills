@@ -7,7 +7,7 @@ import RegisterPageContainer from "./styles"
 import RegisterForm from "../../Components/RegisterForm"
 import BackToLoginBttn from "../../Components/BackToLoginBttn"
 
-const RegisterPage = ({newUser, setNewUser}) => {
+const RegisterPage = () => {
 
 return (
     <RegisterPageContainer>
@@ -24,7 +24,7 @@ return (
                     <span>Rápido e grátis, vamos nessa</span>
                 </header>
 
-                <RegisterForm newUser={newUser} setNewUser={setNewUser}/>
+                <RegisterForm/>
             </div>
 
         </div>

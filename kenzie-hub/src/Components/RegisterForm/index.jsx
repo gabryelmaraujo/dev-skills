@@ -12,7 +12,7 @@ import StyledForm from "./styles";
 
 import instance from "../../data/api";
 
-const RegisterForm = ({newUser, setNewUser}) => {
+const RegisterForm = () => {
   
   const formSchema = yup.object().shape({
     name: yup.string().required("É obrigatório um nome!").min(4,"O nome precisa ter no mínimo 4 caracteres.").max(200, "o nome pode ter no máximo 200 caracteres."),
@@ -91,15 +91,15 @@ const RegisterForm = ({newUser, setNewUser}) => {
       <div className="formInputs">
       <label htmlFor="name">Nome</label>
       <input type="text" id="name" placeholder="Digite seu nome..." {...register("name")}/>
-        {errors.name?.message && <p aria-label="error">{errors.name?.message}</p>}
+        {errors.name?.message && <p aria-label="error" className="inputError">{errors.name?.message}</p>}
 
       <label htmlFor="email">Email</label>
       <input type="email" id="email" placeholder="Digite seu email..." {...register("email")}/>
-        {errors.email?.message && <p aria-label="error">{errors.name?.message}</p>}
+        {errors.email?.message && <p aria-label="error" className="inputError">{errors.name?.message}</p>}
 
       <label htmlFor="password">Senha</label>
       <input type="password" id="password" placeholder="Digite sua senha..." {...register("password")}/>
-        {errors.password?.message && <p aria-label="error">{errors.password?.message}</p>}
+        {errors.password?.message && <p aria-label="error" className="inputError">{errors.password?.message}</p>}
 
       <label htmlFor="confirmPassword">Confirme a sua senha</label>
       <input
@@ -108,15 +108,15 @@ const RegisterForm = ({newUser, setNewUser}) => {
         placeholder="Digite novamente sua senha..."
         {...register("confirmPass")}
       />
-        {errors.confirmPass?.message && <p aria-label="error">{errors.confirmPass?.message}</p>}
+        {errors.confirmPass?.message && <p aria-label="error" className="inputError">{errors.confirmPass?.message}</p>}
 
       <label htmlFor="biography">Bio</label>
       <input type="text" id="biography" placeholder="Fale sobre você..." {...register("bio")}/>
-        {errors.bio?.message && <p aria-label="error">{errors.bio?.message}</p>}
+        {errors.bio?.message && <p aria-label="error" className="inputError">{errors.bio?.message}</p>}
 
       <label htmlFor="contact">Contato</label>
       <input type="tel" id="contact" placeholder="Telefone para contato..." {...register("contact")} />
-        {errors.contact?.message && <p aria-label="error">{errors.contact?.message}</p>}
+        {errors.contact?.message && <p aria-label="error" className="inputError">{errors.contact?.message}</p>}
 
       <label htmlFor="moduleSelect">Módulo</label>
       <select name="moduleSelect" id="moduleSelect" defaultValue={""} {...register("course_module")} >
@@ -128,7 +128,7 @@ const RegisterForm = ({newUser, setNewUser}) => {
         <option value="Terceiro módulo (Introdução ao Backend)">Módulo 3</option>
         <option value="Quarto módulo (Backend Avançado)">Módulo 4</option>
       </select>
-        {errors.course_module?.message && <p aria-label="error">{errors.course_module?.message}</p>}
+        {errors.course_module?.message && <p aria-label="error" className="inputError">{errors.course_module?.message}</p>}
       </div>
       <RegisterButton/>
     </StyledForm>

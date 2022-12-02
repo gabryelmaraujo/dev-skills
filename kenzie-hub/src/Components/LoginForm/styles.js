@@ -41,6 +41,11 @@ button:hover{
     background-color: var(--brand-focus);
 }
 
+.inputError{
+    color: var(--negative);
+    margin-bottom: 0.625rem;
+}
+
 `
 
 export default LoginFormStyled
