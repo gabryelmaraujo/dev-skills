@@ -7,6 +7,9 @@ import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
 
 function App() {
+
+  const [newUser, setNewUser] = useState()
+
   return (
     <div className="App">
       <GlobalStyles/>
@@ -14,7 +17,7 @@ function App() {
       <main className='appMain'>
       {/* <LoginPage/> */}
 
-      <RegisterPage/>
+      <RegisterPage newUser={newUser} setNewUser={setNewUser}/>
 
       {/* <MainPage/> */}
 
