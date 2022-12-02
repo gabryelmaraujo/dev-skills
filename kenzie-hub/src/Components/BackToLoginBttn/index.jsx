@@ -22,7 +22,12 @@ return(
         <BackToLoginBttnStyles>
 
             <button className="backToLoginBttn" onClick={()=>{
-                logout()
+                if(text === "Voltar"){
+                    navigate("/")
+                }else{
+                    logout()
+                }
+
             }}>{text}</button>
 
         </BackToLoginBttnStyles>
