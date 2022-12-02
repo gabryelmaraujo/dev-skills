@@ -4,16 +4,16 @@ import MainPageHeader from "../../Components/MainPageHeader"
 import MainPageUserSection from "../../Components/MainPageUserSection"
 import MainPageContainer from "./styles"
 
-const MainPage = () => {
+const MainPage = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, page, setPage}) => {
 
 return(
 
     <MainPageContainer className="MainPageContainer">
 
-        <MainPageHeader/>
+        <MainPageHeader loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} page={page} setPage={setPage}/>
 
         <main className="MainPageMain">
-            <MainPageUserSection/>
+            <MainPageUserSection loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
             
             <section className="developingSection">
                 <h1>Que pena! Estamos em desenvolvimento :(</h1>

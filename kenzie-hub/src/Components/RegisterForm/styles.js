@@ -70,6 +70,11 @@ const StyledForm = styled.form`
         background-color: var(--brand-negative);
         border: 0.06rem solid var(--brand-negative);
     }
+
+    .inputError{
+        color: var(--negative);
+        margin-bottom: 0.625rem;
+    }
 `
 
 export default StyledForm
