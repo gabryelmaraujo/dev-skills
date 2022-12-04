@@ -7,6 +7,7 @@ import GlobalStyles from './styles/global';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -18,9 +19,11 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer autoClose={2000}/>
       <GlobalStyles/>
 
       <main className='appMain'>
+
 
         <Routes>
           <Route path='/' 

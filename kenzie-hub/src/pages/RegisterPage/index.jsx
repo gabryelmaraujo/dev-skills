@@ -2,12 +2,28 @@ import React from "react"
 
 import logoImg from "../../assets/Logo.svg"
 
+import { toast } from 'react-toastify';
+
 import RegisterPageContainer from "./styles"
 
 import RegisterForm from "../../Components/RegisterForm"
 import BackToLoginBttn from "../../Components/BackToLoginBttn"
 
 const RegisterPage = () => {
+
+    const registerNotify = (result) => {
+
+        if(result === "success"){
+            toast.success("Conta criada com sucesso!", {
+                position: toast.POSITION.RIGHT_CENTER
+              });
+        }else if(result === "emailExists"){
+            toast.error("Esse email já foi cadastrado!", {
+                position: toast.POSITION.BOTTOM_CENTER
+              });
+        }
+
+    }
 
 return (
     <RegisterPageContainer>
@@ -24,7 +40,7 @@ return (
                     <span>Rápido e grátis, vamos nessa</span>
                 </header>
 
-                <RegisterForm/>
+                <RegisterForm registerNotify={registerNotify}/>
             </div>
 
         </div>

@@ -1,7 +1,4 @@
-import React from "react";
-
-// import { toast, ToastContainer } from "react-toastify/dist/components";
-// import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from "react";
 
 import * as yup from "yup"
 import { useForm } from "react-hook-form";
@@ -12,7 +9,7 @@ import StyledForm from "./styles";
 
 import instance from "../../data/api";
 
-const RegisterForm = () => {
+const RegisterForm = ({registerNotify}) => {
   
   const formSchema = yup.object().shape({
     name: yup.string().required("É obrigatório um nome!").min(4,"O nome precisa ter no mínimo 4 caracteres.").max(200, "o nome pode ter no máximo 200 caracteres."),
@@ -24,41 +21,26 @@ const RegisterForm = () => {
     course_module: yup.string().required("Informe o seu módulo!")
   })
 
+  const [registerStatus, setRegisterStatus] = useState()
+
   const {register, handleSubmit, formState: {errors}} = useForm({ resolver: yupResolver(formSchema) })
 
   async function registerFunction(formData){
-
-    // function registerToast(result){
-    //   if(result === "success"){
-    //     toast.success("Você foi cadastrado!", {
-    //       position: toast.POSITION.TOP_RIGHT
-    //     })
-    //   }else if(result === "emailError"){
-    //     toast.error("Esse email já esta sendo usado!", {
-    //       position: toast.POSITION.TOP_RIGHT
-    //     })
-    //   }
-    // }
 
     try{
 
       const response = await instance.post("users", formData)
 
       if(response.status === 201){
-        // registerToast("success")
-        console.log("registrou")
-
-        setTimeout(() => {
-          console.log("aqui redireciona")
-        }, 2000);
+        setRegisterStatus(true)
+        registerNotify("success")
       }
 
     }catch(error){
       if(error.response.data.message === "Email already exists"){
-        console.log("Email já existe")
+        setRegisterStatus(false)
+        registerNotify("emailExists")
       }
-    }finally{
-      console.log("loading")
     }
   }
 
@@ -130,7 +112,7 @@ const RegisterForm = () => {
       </select>
         {errors.course_module?.message && <p aria-label="error" className="inputError">{errors.course_module?.message}</p>}
       </div>
-      <RegisterButton/>
+      <RegisterButton registerStatus={registerStatus}/>
     </StyledForm>
   );
 };

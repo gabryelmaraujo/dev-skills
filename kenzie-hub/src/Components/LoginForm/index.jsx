@@ -11,7 +11,7 @@ import LoginFormStyled from "./styles"
 
 import instance from "../../data/api";
 
-const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus}) => {
+const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, loginNotify}) => {
 
     const loginFormSchema = yup.object().shape({
         email: yup.string().required("É necessário um email!").email("O email não é valido!"),
@@ -29,13 +29,13 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus}) => 
             
             const response = await instance.post("sessions", formData)
 
-            console.log(response)
-
             if(response.status === 200){
                 const userToken = response.data.token
                 const userId = response.data.user.id
 
                 setLoginStatus(true)
+
+                loginNotify("success")
 
                 setLoggedUser(response.data.user)
 
@@ -45,9 +45,7 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus}) => 
             }
 
         }catch(error){
-            console.log(error)
-        }finally{
-            console.log('ok')
+            loginNotify("error")
         }
 
     }
@@ -70,7 +68,10 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus}) => 
 
             <button type="submit" id="loginBttn" onClick={ ()=>{
                 if(loginStatus){
-                    navigate("/dashboard")
+
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 2000);
                 }
             } } >Entrar</button>
             
