@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 import GlobalStyles from './styles/global';
 
@@ -8,14 +8,18 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
 import { ToastContainer } from 'react-toastify';
+import { useEffect } from 'react';
 
 
 function App() {
 
   const [loggedUser, setLoggedUser] = useState({})
-  const [loading, setLoading] = useState(true)
   const [page, setPage] = useState("login")
   const [loginStatus, setLoginStatus] = useState(false)
+
+  useEffect(()=>{}, [loginStatus])
+
+  const navigate = useNavigate()
 
   return (
     <div className="App">

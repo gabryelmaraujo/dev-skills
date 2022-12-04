@@ -8,9 +8,12 @@ import RegisterButton from "../RegisterBttn";
 import StyledForm from "./styles";
 
 import instance from "../../data/api";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = ({registerNotify}) => {
   
+  const navigate = useNavigate()
+
   const formSchema = yup.object().shape({
     name: yup.string().required("É obrigatório um nome!").min(4,"O nome precisa ter no mínimo 4 caracteres.").max(200, "o nome pode ter no máximo 200 caracteres."),
     email: yup.string().required("É necessário um email!").email("O email não é valido!"),
@@ -34,6 +37,10 @@ const RegisterForm = ({registerNotify}) => {
       if(response.status === 201){
         setRegisterStatus(true)
         registerNotify("success")
+
+        setTimeout(() => {
+          navigate("/login")
+      }, 2000);
       }
 
     }catch(error){
