@@ -29,6 +29,9 @@ label{
 
 :root{
 
+    --toastify-color-light: #343B41;
+    --toastify-text-color-light: #f8f9fa;
+
     --brand-1: #FF577F;
     --brand-focus: #FF427F;
     --brand-negative: #59323F;
