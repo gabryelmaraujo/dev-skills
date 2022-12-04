@@ -8,13 +8,7 @@ const RegisterButton = ({registerStatus}) => {
 
 return(
     <>
-        <button className="registerBttn" onClick={ ()=>{
-            if(registerStatus){
-                setTimeout(() => {
-                    navigate("/login")
-                }, 2000);
-            }
-        } } >Cadastrar</button>
+        <button className="registerBttn" >Cadastrar</button>
     </>
 )
 

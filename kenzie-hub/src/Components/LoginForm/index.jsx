@@ -10,6 +10,7 @@ import "./styles"
 import LoginFormStyled from "./styles"
 
 import instance from "../../data/api";
+import { useEffect } from "react";
 
 const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, loginNotify}) => {
 
@@ -42,10 +43,16 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, logi
                 localStorage.setItem("@KenzieHub/userToken", userToken)
                 localStorage.setItem("@KenzieHub/userId", userId)
 
+                setTimeout(() => {
+                    navigate("/dashboard")
+                }, 2000);
+
             }
 
         }catch(error){
             loginNotify("error")
+
+            setLoginStatus(false)
         }
 
     }
@@ -66,14 +73,7 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, logi
             <input type="password" name="password" id="inputPassword" placeholder="Digite sua senha..." {...register("password")}/>
                 {errors.password?.message && <p aria-label="error" className="inputError">{errors.password?.message}</p>}
 
-            <button type="submit" id="loginBttn" onClick={ ()=>{
-                if(loginStatus){
-
-                    setTimeout(() => {
-                        navigate("/dashboard")
-                    }, 2000);
-                }
-            } } >Entrar</button>
+            <button type="submit" id="loginBttn" >Entrar</button>
             
         </LoginFormStyled>
     )
