@@ -22,8 +22,9 @@ const StyledMainPageHeader = styled.header`
     }
 
     .mpHeaderContainer img, div, button{
-        margin: 0;
+        margin-right: 0.625rem;
     }
+
 
 `
 

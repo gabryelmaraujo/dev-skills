@@ -19,8 +19,6 @@ function App() {
 
   useEffect(()=>{}, [loginStatus])
 
-  const navigate = useNavigate()
-
   return (
     <div className="App">
       <ToastContainer autoClose={2000}/>

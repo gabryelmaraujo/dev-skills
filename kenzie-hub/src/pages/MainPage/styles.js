@@ -9,6 +9,13 @@ const MainPageContainer = styled.div`
     .developingSection{
         width: 60%;
     }
+
+    @media (max-width: 600px){
+        .developingSection{
+            display: none;
+        }
+    }
+
     .developingSection h1{
         color: var(--grey-0);
         font-weight: var(--font-w-1);
@@ -21,6 +28,7 @@ const MainPageContainer = styled.div`
         font-weight: var(--font-w-4);
         font-size: var(--font-s-2);
     }
+
 
 `
 

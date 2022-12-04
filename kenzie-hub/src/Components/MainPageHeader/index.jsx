@@ -8,7 +8,7 @@ return (
 
     <StyledMainPageHeader className="MainPageHeader">
         <div className="mpHeaderContainer">
-            <img src={logoImg} alt="" />
+            <img src={logoImg} alt="" className="headerLogo"/>
 
             <BackToLoginBttn text={"Sair"} loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} page={page} setPage={setPage}/>
         </div>
