@@ -57,7 +57,7 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, logi
     const navigate = useNavigate()
 
     return (
-        <LoginFormStyled className="LoginForm" onSubmit={handleSubmit(loginSubmiter)}>
+        <LoginFormStyled className="LoginForm" onSubmit={handleSubmit(loginSubmiter)} noValidate autoComplete="off">
             <label htmlFor="inputEmail">Email</label>
             <input type="email" name="email" id="inputEmail" placeholder="Digite seu email..." {...register("email")} />
                 {errors.email?.message && <p aria-label="error" className="inputError">{errors.email?.message}</p>}

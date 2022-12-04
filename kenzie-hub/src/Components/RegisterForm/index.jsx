@@ -69,7 +69,10 @@ const RegisterForm = ({registerNotify}) => {
 
 
   return (
-    <StyledForm className="RegisterForm" onSubmit={handleSubmit(formSubmiter)}>
+    <StyledForm className="RegisterForm" onSubmit={handleSubmit(formSubmiter)}
+    noValidate
+    autoComplete="off"
+    >
       <div className="formInputs">
       <label htmlFor="name">Nome</label>
       <input type="text" id="name" placeholder="Digite seu nome..." {...register("name")}/>
