@@ -1,4 +1,5 @@
 import React from "react"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 import MainPageHeader from "../../Components/MainPageHeader"
@@ -8,13 +9,18 @@ import MainPageContainer from "./styles"
 
 const MainPage = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, page, setPage}) => {
     
-    const navigate = useNavigate()
 
+    const navigate = useNavigate()
+    
+    useEffect(()=>{
+        
         if(!loginStatus){
           
             navigate("/")
 
         }
+
+    }, [loginStatus])
 
 return(
 
