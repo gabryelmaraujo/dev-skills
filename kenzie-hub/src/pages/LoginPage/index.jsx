@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./styles"
 
-import logoImg from "../../assets/Logo.svg"
+import logoImg from "../../assets/Logo.png"
 import LoginForm from "../../Components/LoginForm";
 import LoginPageContainer from "./styles";
 import GoToRegisterBttn from "../../Components/GoToRegisterBttn";

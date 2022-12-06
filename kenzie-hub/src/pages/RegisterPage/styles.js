@@ -13,6 +13,12 @@ const RegisterPageContainer = styled.div`
         margin-bottom: 3rem;
     }
 
+    .headerLogoDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .registerPageMain{
         background-color: var(--grey-3);
         padding: 2.625rem 1.375rem;
