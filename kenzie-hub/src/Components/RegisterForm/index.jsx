@@ -16,7 +16,7 @@ const RegisterForm = ({registerNotify}) => {
 
   const formSchema = yup.object().shape({
     name: yup.string().required("É obrigatório um nome!").min(4,"O nome precisa ter no mínimo 4 caracteres.").max(200, "o nome pode ter no máximo 200 caracteres."),
-    email: yup.string().required("É necessário um email!").email("O email não é valido!"),
+    email: yup.string().required("É necessário um email!").email("Esse email não é válido!"),
     password: yup.string().required("É obrigatório uma senha!").matches(/(?=.*?[A-Z])/, "É necessário, pelo menos uma letra maíuscula").matches(/(?=.*?[a-z])/, "É necessário pelo menos uma letra minúscula.").matches(/(?=.*?[0-9])/, "É necessário, pelo menos um número.").matches(/(?=.*?[#?!@$%^&*-])/, "É necessário pelo menos um caractere special").min(8, "A senha precisa ter no mínimo 8 caracteres."),
     confirmPass: yup.string().oneOf([yup.ref('password'), null], 'As senhas têm que coincidirem.'),
     bio: yup.string().required("Fale um pouco sobre você!"),
@@ -33,6 +33,7 @@ const RegisterForm = ({registerNotify}) => {
     try{
 
       const response = await instance.post("users", formData)
+      console.log(response)
 
       if(response.status === 201){
         setRegisterStatus(true)
@@ -87,7 +88,7 @@ const RegisterForm = ({registerNotify}) => {
 
       <label htmlFor="email">Email</label>
       <input type="email" id="email" placeholder="Digite seu email..." {...register("email")}/>
-        {errors.email?.message && <p aria-label="error" className="inputError">{errors.name?.message}</p>}
+        {errors.email?.message && <p aria-label="error" className="inputError">{errors.email?.message}</p>}
 
       <label htmlFor="password">Senha</label>
       <input type="password" id="password" placeholder="Digite sua senha..." {...register("password")}/>
