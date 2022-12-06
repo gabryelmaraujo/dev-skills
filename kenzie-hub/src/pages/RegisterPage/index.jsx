@@ -1,6 +1,6 @@
 import React from "react"
 
-import logoImg from "../../assets/Logo.svg"
+import logoImg from "../../assets/Logo.png"
 
 import { toast } from 'react-toastify';
 
@@ -28,7 +28,9 @@ const RegisterPage = () => {
 return (
     <RegisterPageContainer>
         <header className="registerPageHeader">
-            <img src={logoImg} alt="" />
+            <div className="headerLogoDiv">
+                <img src={logoImg} alt="" />
+            </div>
 
             <BackToLoginBttn text={"Voltar"}/>
         </header>

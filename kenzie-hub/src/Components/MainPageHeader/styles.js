@@ -21,6 +21,12 @@ const StyledMainPageHeader = styled.header`
         margin: 0 auto;
     }
 
+    .mpHeaderLogoDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .mpHeaderContainer img, div, button{
         margin-right: 0.625rem;
     }

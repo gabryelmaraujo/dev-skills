@@ -32,9 +32,9 @@ label{
     --toastify-color-light: #343B41;
     --toastify-text-color-light: #f8f9fa;
 
-    --brand-1: #FF577F;
-    --brand-focus: #FF427F;
-    --brand-negative: #59323F;
+    --brand-1: #064f39;
+    --brand-focus: #055b15;
+    --brand-negative: #064f3987;
 
     --grey-0: #F8F9FA; //branco
     --grey-1: #868E96;
