@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles"
 import LoginFormStyled from "./styles"
 
-import instance from "../../data/api";
+import instance from "../../services/api";
 import { useEffect } from "react";
 
 const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, loginNotify}) => {
