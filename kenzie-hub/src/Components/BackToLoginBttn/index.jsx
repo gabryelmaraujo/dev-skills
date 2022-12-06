@@ -13,8 +13,7 @@ const BackToLoginBttn = ({text, loggedUser, setLoggedUser, loginStatus, setLogin
         
         setLoggedUser({})
 
-        localStorage.setItem("@KenzieHub/userToken", "")
-        localStorage.setItem("@KenzieHub/userId", "")
+        localStorage.clear()
 
     }
 

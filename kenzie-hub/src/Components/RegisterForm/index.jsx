@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import RegisterButton from "../RegisterBttn";
 import StyledForm from "./styles";
 
-import instance from "../../data/api";
+import instance from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 const RegisterForm = ({registerNotify}) => {
