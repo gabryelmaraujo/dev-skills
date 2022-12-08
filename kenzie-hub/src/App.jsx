@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 
 import GlobalStyles from './styles/global';
 
@@ -8,7 +8,6 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
 import { ToastContainer } from 'react-toastify';
-import { useEffect } from 'react';
 
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
   const [page, setPage] = useState("login")
   const [loginStatus, setLoginStatus] = useState(false)
 
-  useEffect(()=>{}, [loginStatus])
 
   return (
     <div className="App">
@@ -26,25 +24,31 @@ function App() {
 
       <main className='appMain'>
 
+            <Routes>
+              <Route path='/' 
+              element={
 
-        <Routes>
-          <Route path='/' 
-          element={
-            <LoginPage loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} page={page} setPage={setPage} />
-          } />
+                <LoginPage/>
 
-          <Route path='register' 
-          element={
-            <RegisterPage page={page} setPage={setPage} />
-          } />
+              } />
 
-          <Route path='dashboard' 
-          element={
-            <MainPage loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} page={page} setPage={setPage} />
-          } />
+              <Route path='register' 
+              element={
 
-          <Route path='*' element={ <Navigate to="/" /> }/>
-        </Routes>
+                <RegisterPage/>
+
+              } />
+
+              <Route path='dashboard' 
+              element={
+
+                <MainPage/>
+
+              } />
+
+              <Route path='*' element={ <Navigate to="/" /> }/>
+            </Routes>
+
 
       </main>
 

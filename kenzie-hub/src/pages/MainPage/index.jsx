@@ -1,35 +1,38 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 import MainPageHeader from "../../Components/MainPageHeader"
 import MainPageUserSection from "../../Components/MainPageUserSection"
+import { UserContext } from "../../contexts/UserContext"
 
 import MainPageContainer from "./styles"
 
-const MainPage = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, page, setPage}) => {
+const MainPage = () => {
     
+    const userContext = useContext(UserContext)
+
 
     const navigate = useNavigate()
     
     useEffect(()=>{
         
-        if(!loginStatus){
+        if(!userContext.loginStatus){
           
             navigate("/")
 
         }
 
-    }, [loginStatus])
+    }, [userContext.loginStatus])
 
 return(
 
     <MainPageContainer className="MainPageContainer">
 
-        <MainPageHeader loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} page={page} setPage={setPage}/>
+        <MainPageHeader />
 
         <main className="MainPageMain">
-            <MainPageUserSection loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
+            <MainPageUserSection />
             
             <section className="developingSection">
                 <h1>Que pena! Estamos em desenvolvimento :(</h1>
