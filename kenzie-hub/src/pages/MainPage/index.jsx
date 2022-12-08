@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import MainPageHeader from "../../Components/MainPageHeader"
 import MainPageUserSection from "../../Components/MainPageUserSection"
+import TechSection from "../../Components/TechSection"
 import { UserContext } from "../../contexts/UserContext"
 
 import MainPageContainer from "./styles"
@@ -34,10 +35,7 @@ return(
         <main className="MainPageMain">
             <MainPageUserSection />
             
-            <section className="developingSection">
-                <h1>Que pena! Estamos em desenvolvimento :(</h1>
-                <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
-            </section>
+            <TechSection />
         </main>
 
     </MainPageContainer>

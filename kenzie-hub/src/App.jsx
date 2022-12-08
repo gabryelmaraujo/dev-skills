@@ -12,10 +12,6 @@ import { ToastContainer } from 'react-toastify';
 
 function App() {
 
-  const [loggedUser, setLoggedUser] = useState({})
-  const [page, setPage] = useState("login")
-  const [loginStatus, setLoginStatus] = useState(false)
-
 
   return (
     <div className="App">
