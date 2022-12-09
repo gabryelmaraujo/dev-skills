@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import AddTechModal from "../../Components/AddTechModal"
 
 import MainPageHeader from "../../Components/MainPageHeader"
 import MainPageUserSection from "../../Components/MainPageUserSection"
@@ -30,6 +31,8 @@ return(
     <MainPageContainer className="MainPageContainer">
 
         <MainPageHeader />
+
+        {/* <AddTechModal /> */}
 
         <main className="MainPageMain">
             <MainPageUserSection />

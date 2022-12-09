@@ -4,12 +4,12 @@ import instance from "../../services/api"
 import AddTechStyles from "./styles"
 
 
-const AddTechBttn = ({openModal}) => {
+const AddTechBttn = () => {
 
 
 
 return(
-    <AddTechStyles onClick={openModal}>
+    <AddTechStyles>
         +
     </AddTechStyles>
 )

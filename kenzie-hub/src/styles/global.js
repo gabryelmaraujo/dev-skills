@@ -6,7 +6,6 @@ const GlobalStyles = createGlobalStyle`
 
 *{
     padding: 0;
-    margin: 0 auto;
     font-family: 'Inter', sans-serif;
 }
 button, a{
