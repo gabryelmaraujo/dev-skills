@@ -1,23 +1,21 @@
-import { useState } from "react"
-import Modal from "react-modal"
-import AddTechBttn from "../AddTechBttn"
-import TechList from "../TechList"
-import TechSectionStyles from "./styles"
-
+import { useState } from "react";
+import Modal from "react-modal";
+import { TechProvider } from "../../contexts/TechContext";
+import AddTechBttn from "../AddTechBttn";
+import TechList from "../TechList";
+import TechSectionStyles from "./styles";
 
 const TechSection = () => {
-
-return(
+  return (
     <TechSectionStyles>
-        <header className="techSectionHeader">
-            <p className="techHeaderTitle">Tecnologias</p>
-            <AddTechBttn/>
-        </header>
+      <header className="techSectionHeader">
+        <p className="techHeaderTitle">Tecnologias</p>
+        <AddTechBttn />
+      </header>
 
-        <TechList />
+      <TechList />
     </TechSectionStyles>
-)
+  );
+};
 
-}
-
-export default TechSection
+export default TechSection;
