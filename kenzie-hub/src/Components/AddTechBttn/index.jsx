@@ -1,10 +1,15 @@
+import { useState } from "react"
+import ReactModal from "react-modal"
+import instance from "../../services/api"
 import AddTechStyles from "./styles"
 
 
-const AddTechBttn = () => {
+const AddTechBttn = ({openModal}) => {
+
+
 
 return(
-    <AddTechStyles>
+    <AddTechStyles onClick={openModal}>
         +
     </AddTechStyles>
 )

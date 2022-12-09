@@ -123,7 +123,7 @@ const RegisterForm = ({registerNotify}) => {
       </select>
         {errors.course_module?.message && <p aria-label="error" className="inputError">{errors.course_module?.message}</p>}
       </div>
-      <RegisterButton registerStatus={registerStatus}/>
+      <RegisterButton/>
     </StyledForm>
   );
 };

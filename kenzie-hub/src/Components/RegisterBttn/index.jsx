@@ -2,9 +2,7 @@ import React from "react"
 
 import { useNavigate } from "react-router-dom";
 
-const RegisterButton = ({registerStatus}) => {
-
-    const navigate = useNavigate()
+const RegisterButton = () => {
 
 return(
     <>
