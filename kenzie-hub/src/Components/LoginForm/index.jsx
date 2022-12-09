@@ -10,13 +10,12 @@ import "./styles"
 import LoginFormStyled from "./styles"
 
 import instance from "../../services/api";
-import { useEffect } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 const LoginForm = ({loginNotify}) => {
-        
-    const userContext = useContext(UserContext)
     
+    const { setLoginStatus, setLoggedUser } = useContext(UserContext)
+
     const navigate = useNavigate()
 
     const loginFormSchema = yup.object().shape({
@@ -39,11 +38,11 @@ const LoginForm = ({loginNotify}) => {
                 const userToken = response.data.token
                 const userId = response.data.user.id
 
-                userContext.setLoginStatus(true)
+                setLoginStatus(true)
 
                 loginNotify("success")
 
-                userContext.setLoggedUser(response.data.user)
+                setLoggedUser(response.data.user)
 
                 localStorage.setItem("@KenzieHub/userToken", userToken)
                 localStorage.setItem("@KenzieHub/userId", userId)
@@ -57,7 +56,7 @@ const LoginForm = ({loginNotify}) => {
         }catch(error){
             loginNotify("error")
 
-            userContext.setLoginStatus(false)
+            setLoginStatus(false)
         }
 
     }

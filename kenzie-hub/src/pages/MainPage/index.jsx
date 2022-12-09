@@ -10,21 +10,20 @@ import { UserContext } from "../../contexts/UserContext"
 import MainPageContainer from "./styles"
 
 const MainPage = () => {
-    
-    const userContext = useContext(UserContext)
 
+    const { loginStatus } = useContext(UserContext)
 
     const navigate = useNavigate()
     
     useEffect(()=>{
         
-        if(!userContext.loginStatus){
+        if(!loginStatus){
           
             navigate("/")
 
         }
 
-    }, [userContext.loginStatus])
+    }, [loginStatus, navigate])
 
 return(
 

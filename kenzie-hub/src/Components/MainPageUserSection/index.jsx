@@ -6,10 +6,10 @@ import UserSectionStyles from "./styles"
 
 const MainPageUserSection = () => {
 
-    const userContext = useContext(UserContext)
+    const { loggedUser } = useContext(UserContext)
 
-    const userName = userContext.loggedUser.name
-    const userModule = userContext.loggedUser.course_module
+    const userName = loggedUser.name
+    const userModule = loggedUser.course_module
 
 return (
 
