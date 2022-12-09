@@ -6,6 +6,7 @@ import AddTechModal from "../../Components/AddTechModal"
 import MainPageHeader from "../../Components/MainPageHeader"
 import MainPageUserSection from "../../Components/MainPageUserSection"
 import TechSection from "../../Components/TechSection"
+import { TechContext} from "../../contexts/TechContext"
 import { UserContext } from "../../contexts/UserContext"
 
 import MainPageContainer from "./styles"
@@ -13,6 +14,8 @@ import MainPageContainer from "./styles"
 const MainPage = () => {
 
     const { loginStatus } = useContext(UserContext)
+    const { modalOpen } = useContext(TechContext)
+    console.log(modalOpen)
 
     const navigate = useNavigate()
     
@@ -29,16 +32,16 @@ const MainPage = () => {
 return(
 
     <MainPageContainer className="MainPageContainer">
+            <MainPageHeader />
 
-        <MainPageHeader />
 
-        {/* <AddTechModal /> */}
-
-        <main className="MainPageMain">
-            <MainPageUserSection />
+            <main className="MainPageMain">
+            { modalOpen ? (<AddTechModal />) : ("")}
             
-            <TechSection />
-        </main>
+                <MainPageUserSection />
+                
+                <TechSection />
+            </main>
 
     </MainPageContainer>
 
