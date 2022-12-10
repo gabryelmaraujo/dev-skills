@@ -13,6 +13,8 @@ border: 0.06rem solid var(--grey-4);
 border-radius: 0.25rem;
 padding: 0 5%;
 
+margin-bottom: 1rem;
+
 }
 .techInfos{
     width: 100%;

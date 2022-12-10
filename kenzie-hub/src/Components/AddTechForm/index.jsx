@@ -6,10 +6,17 @@ import { yupResolver } from "@hookform/resolvers/yup"
 
 import AddTechFormStyles from "./styles"
 import { min } from "lodash";
+import { useEffect } from "react";
+import instance from "../../services/api";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { TechContext } from "../../contexts/TechContext";
 
 
 
 const AddTechForm = () => {
+
+    const { addTechFunction } = useContext(TechContext)
 
     const addTechSchema = yup.object().shape({
         techName: yup.string().required("É necessário adicionar um nome.").min(4, "O nome precisa ter no mínimo 4 caracteres."),
@@ -18,19 +25,10 @@ const AddTechForm = () => {
 
     const {register, handleSubmit, formState: {errors}} = useForm({ resolver: yupResolver(addTechSchema) })
 
-    function addTechSubmiter(data){
-        console.log(data)
-        console.log(dataTreat(data))
+    async function addTechSubmiter(data){
 
-    }
-
-    function dataTreat(techdata){
-        const treatedData = {
-            "title": techdata.techName,
-            "status": techdata.tech_status
-        }
-
-        return treatedData
+        addTechFunction(data)
+        
     }
 
 return (
