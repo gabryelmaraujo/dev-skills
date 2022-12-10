@@ -8,9 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MainPage from "./pages/MainPage";
 import { ToastContainer } from "react-toastify";
-import Modal from "react-modal";
 
-Modal.setAppElement("#root");
 
 function App() {
   return (

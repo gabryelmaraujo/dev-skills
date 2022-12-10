@@ -23,6 +23,16 @@ const TechSectionStyles = styled.section`
         padding: 0;
     }
 
+    .techList::-webkit-scrollbar {
+        width: 0.25rem;
+    }
+
+    .techList::-webkit-scrollbar-thumb {
+        background-color: var(--brand-1);
+        border-radius: 0.25rem;
+        border: 0.06rem solid rgba(0,0,0,0);
+    }
+
 `
 
 export default TechSectionStyles

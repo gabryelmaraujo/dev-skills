@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import { useState } from "react";
 import Modal from "react-modal";
-import { TechProvider } from "../../contexts/TechContext";
+import { TechContext, TechProvider } from "../../contexts/TechContext";
+import { UserContext } from "../../contexts/UserContext";
 import AddTechBttn from "../AddTechBttn";
 import TechList from "../TechList";
 import TechSectionStyles from "./styles";
 
 const TechSection = () => {
+
   return (
     <TechSectionStyles>
       <header className="techSectionHeader">
@@ -13,7 +16,7 @@ const TechSection = () => {
         <AddTechBttn />
       </header>
 
-      <TechList />
+      <TechList/>
     </TechSectionStyles>
   );
 };

@@ -15,7 +15,6 @@ const MainPage = () => {
 
     const { loginStatus } = useContext(UserContext)
     const { modalOpen } = useContext(TechContext)
-    console.log(modalOpen)
 
     const navigate = useNavigate()
     
