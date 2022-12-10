@@ -9,7 +9,8 @@ const RegisterPageContainer = styled.div`
 
     .registerPageHeader{
         display: flex;
-
+        align-items: center;
+        justify-content: space-around;
         margin-bottom: 3rem;
     }
 
