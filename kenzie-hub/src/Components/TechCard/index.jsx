@@ -7,12 +7,22 @@ import { TechContext } from "../../contexts/TechContext";
 
 const TechCard = ({techId, techName, techLevel}) => {
 
-  const { removeTech } = useContext(TechContext)
+  const { setEditTechOpen, removeTech, setToEditTech } = useContext(TechContext)
 
 
   return (
     <TechCardStyles className="techCard"  id={techId}>
-      <div className="techInfos">
+      <div className="techInfos" onClick={(e)=>{
+        setEditTechOpen(true)
+
+        const targetData = {
+          "techId": e.target.parentElement.id,
+          "techName": e.target.children[0].innerText,
+          "techStatus": e.target.children[1].innerText
+        }
+
+        setToEditTech(targetData)
+    }}>
         <p className="techName">{techName}</p>
         <p className="techLevel">{techLevel}</p>
       </div>

@@ -1,25 +1,25 @@
 
 import { react, useContext, useState, useEffect } from "react"
 import { TechContext } from "../../contexts/TechContext"
-import AddTechForm from "../AddTechForm"
+import EditTechForm from "../EditTechForm"
 import ModalStyles from "./styles"
 
 
-const AddTechModal = () => {
+const EditTechModal = () => {
 
-    const { addTechOpen, setAddTechOpen } = useContext(TechContext)
+    const { setEditTechOpen } = useContext(TechContext)
 
 return (
     <ModalStyles>
         <div className="addTechModalContainer">
             <header className="modalHeader">
-                <p className="modalTitle">Cadastrar Tecnologia</p>
+                <p className="modalTitle">Editar Tecnologia</p>
                 <button className="modalClose" onClick={()=>{
-                    setAddTechOpen(false)
+                    setEditTechOpen(false)
                 }}>X</button>
             </header>
             <main className="modalMain">
-                <AddTechForm />
+                <EditTechForm />
             </main>
         </div>
     </ModalStyles>
@@ -27,4 +27,4 @@ return (
 
 }
 
-export default AddTechModal
+export default EditTechModal

@@ -8,11 +8,11 @@ import AddTechStyles from "./styles"
 
 const AddTechBttn = () => {
 
-    const { setModalOpen } = useContext(TechContext)
+    const { setAddTechOpen } = useContext(TechContext)
 
 return(
     <AddTechStyles onClick={()=>{
-        setModalOpen(true)
+        setAddTechOpen(true)
     }}>
         +
     </AddTechStyles>
