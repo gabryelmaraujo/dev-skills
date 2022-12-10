@@ -6,8 +6,10 @@ import instance from "../services/api";
 export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [addTechOpen, setAddTechOpen] = useState(false);
+  const [editTechOpen, setEditTechOpen] = useState(false);
   const [techs, setTechs] = useState([]);
+  const [toEditTech, setToEditTech] = useState({})
 
   const loggedUserToken = localStorage.getItem("@KenzieHub/userToken");
 
@@ -57,7 +59,7 @@ export const TechProvider = ({ children }) => {
           position: toast.POSITION.RIGHT_CENTER,
         });
         setTimeout(() => {
-          setModalOpen(false);
+          setAddTechOpen(false);
         }, 500);
       }
     } catch (error) {
@@ -92,16 +94,51 @@ export const TechProvider = ({ children }) => {
 
   }
 
+  async function editTechFunction(id, data){
+
+    try{
+
+      const response = await instance.put(`users/techs/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${loggedUserToken}`
+        }
+      })
+
+      if(response.status === 201){
+
+        toast.success("A tecnologia foi atualizada!",{
+          position: toast.POSITION.TOP_RIGHT,
+        })
+
+        getTechs()
+
+        setTimeout(() => {
+          setEditTechOpen(false)
+        }, 500);
+
+      }
+
+    }catch(error){
+      console.log(error)
+    }
+
+  }
+
 
   return (
     <TechContext.Provider
       value={{
-        modalOpen,
-        setModalOpen,
+        addTechOpen,
+        setAddTechOpen,
         addTechFunction,
         techs,
         setTechs,
-        removeTech
+        removeTech,
+        editTechFunction,
+        editTechOpen,
+        setEditTechOpen,
+        toEditTech,
+        setToEditTech
       }}
     >
       {children}

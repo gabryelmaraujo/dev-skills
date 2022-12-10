@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import AddTechModal from "../../Components/AddTechModal"
+import EditTechModal from "../../Components/EditTechModal"
 
 import MainPageHeader from "../../Components/MainPageHeader"
 import MainPageUserSection from "../../Components/MainPageUserSection"
@@ -14,7 +15,7 @@ import MainPageContainer from "./styles"
 const MainPage = () => {
 
     const { loginStatus } = useContext(UserContext)
-    const { modalOpen } = useContext(TechContext)
+    const { addTechOpen, editTechOpen } = useContext(TechContext)
 
     const navigate = useNavigate()
     
@@ -35,7 +36,8 @@ return(
 
 
             <main className="MainPageMain">
-            { modalOpen ? (<AddTechModal />) : ("")}
+            { addTechOpen ? (<AddTechModal />) : ("")}
+            { editTechOpen ? (<EditTechModal />) : ("") }
             
                 <MainPageUserSection />
                 
