@@ -23,6 +23,15 @@ const TechSectionStyles = styled.section`
         margin: 0;
         padding: 0;
     }
+    .noTechDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .noTechParag{
+        color: var(--grey-0);
+        font-size: var(--font-s-4);
+    }
 
     .techList::-webkit-scrollbar {
         width: 0.25rem;

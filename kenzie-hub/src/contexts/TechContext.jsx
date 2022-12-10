@@ -40,7 +40,7 @@ export const TechProvider = ({ children }) => {
 
   useEffect(()=>{
     getTechs()
-  },[])
+  },[loggedUserToken])
   
   async function addTechFunction(data) {
 
