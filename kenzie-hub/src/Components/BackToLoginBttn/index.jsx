@@ -1,12 +1,14 @@
 import React, { useContext } from "react"
 import { useNavigate, useNavigationType } from "react-router-dom"
+import { TechContext } from "../../contexts/TechContext"
 import { UserContext } from "../../contexts/UserContext"
 import BackToLoginBttnStyles from "./styles"
 
 
 const BackToLoginBttn = ({text}) => {
 
-    const userContext = useContext(UserContext)
+    const { setLoggedUser } = useContext(UserContext)
+    const { setTechs } = useContext(TechContext)
 
     const navigate = useNavigate()
 
@@ -14,7 +16,8 @@ const BackToLoginBttn = ({text}) => {
 
         navigate("/")
         
-        userContext.setLoggedUser({})
+        setLoggedUser({})
+        setTechs([])
 
         localStorage.clear()
 
