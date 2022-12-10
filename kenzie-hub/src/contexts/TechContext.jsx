@@ -20,6 +20,26 @@ export const TechProvider = ({ children }) => {
     return treatedData;
   }
 
+  
+  async function getTechs() {
+    try {
+      const response = await instance.get("profile", {
+        headers:{
+          Authorization: `Bearer ${loggedUserToken}`
+        }
+      });
+      
+      setTechs(response.data.techs)
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    getTechs()
+  },[])
+  
   async function addTechFunction(data) {
 
     const tech = dataTreat(data);
@@ -32,12 +52,13 @@ export const TechProvider = ({ children }) => {
       });
 
       if (response.status === 201) {
+        getTechs()
         toast.success("A tecnologia foi adicionada!", {
           position: toast.POSITION.RIGHT_CENTER,
         });
         setTimeout(() => {
           setModalOpen(false);
-        }, 2000);
+        }, 500);
       }
     } catch (error) {
       toast.warning("Você já tem uma tecnologia com esse nome!", {
@@ -46,23 +67,30 @@ export const TechProvider = ({ children }) => {
     }
   }
 
-  useEffect(()=>{
-    async function getTechs() {
-        try {
-          const response = await instance.get("profile", {
-            headers:{
-                Authorization: `Bearer ${loggedUserToken}`
-            }
-          });
 
-          setTechs(response.data.techs)
-    
-        } catch (error) {
-          console.log(error);
-        }
+  async function removeTech(id){
+    const loggedUserToken = localStorage.getItem("@KenzieHub/userToken");
+    try{
+
+      const response = await instance.delete(`users/techs/${id}`,{
+        headers: {
+          Authorization: `Bearer ${loggedUserToken}`,
+        },
+      })
+
+      
+      if(response.status === 204){
+        getTechs()
+        toast.success("A tecnologia foi removida!",{
+          position: toast.POSITION.TOP_RIGHT,
+        })
       }
-      getTechs()
-  },[loggedUserToken])
+
+    }catch(error){
+      console.log(error)
+    }
+
+  }
 
 
   return (
@@ -71,7 +99,9 @@ export const TechProvider = ({ children }) => {
         modalOpen,
         setModalOpen,
         addTechFunction,
-        techs
+        techs,
+        setTechs,
+        removeTech
       }}
     >
       {children}

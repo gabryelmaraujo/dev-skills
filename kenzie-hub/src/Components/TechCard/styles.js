@@ -15,7 +15,7 @@ padding: 0 5%;
 
 margin-bottom: 1rem;
 
-}
+
 .techInfos{
     width: 100%;
     display: flex;
@@ -44,8 +44,8 @@ margin-bottom: 1rem;
     font-weight: var(--font-w-4);
 }
 .techRemove{
-    background-color: var(--grey-4);
-    border: 1px solid var(--grey-4);
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 `
 
