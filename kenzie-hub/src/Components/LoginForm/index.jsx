@@ -11,10 +11,12 @@ import LoginFormStyled from "./styles"
 
 import instance from "../../services/api";
 import { UserContext } from "../../contexts/UserContext";
+import { TechContext } from "../../contexts/TechContext";
 
 const LoginForm = ({loginNotify}) => {
     
     const { setLoginStatus, setLoggedUser } = useContext(UserContext)
+    const { setTechs } = useContext(TechContext)
 
     const navigate = useNavigate()
 
@@ -43,6 +45,7 @@ const LoginForm = ({loginNotify}) => {
                 loginNotify("success")
 
                 setLoggedUser(response.data.user)
+                setTechs(response.data.user.techs)
 
                 localStorage.setItem("@KenzieHub/userToken", userToken)
                 localStorage.setItem("@KenzieHub/userId", userId)

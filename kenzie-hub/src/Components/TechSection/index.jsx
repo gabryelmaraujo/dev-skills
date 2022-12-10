@@ -11,8 +11,6 @@ const TechSection = () => {
 
   const { techs } = useContext(TechContext)
 
-  console.log(techs, techs.length)
-
   return (
     <TechSectionStyles>
       <header className="techSectionHeader">
