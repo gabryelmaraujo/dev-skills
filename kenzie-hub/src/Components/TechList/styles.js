@@ -13,6 +13,11 @@ max-height: 300px;
 overflow-x: hidden;
 overflow-y: scroll;
 
+.techCard:hover{
+    background-color: var(--grey-2);
+    color: var(--grey-0);
+    cursor: pointer;
+}
 
 `
 

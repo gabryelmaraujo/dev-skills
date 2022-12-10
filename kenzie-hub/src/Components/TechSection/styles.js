@@ -5,6 +5,7 @@ const TechSectionStyles = styled.section`
 
     width: 60%;
     margin: 0 auto;
+    margin-bottom: 1rem;
 
     ul, li{
         list-style: none;

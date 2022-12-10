@@ -20,7 +20,7 @@ return(
                 const techLevel = tech.status
                 
                 return(
-                    <TechCard techName={techName} techId={techId} techLevel={techLevel}/>
+                    <TechCard key={techId} techName={techName} techId={techId} techLevel={techLevel}/>
                 )
             })
         }
