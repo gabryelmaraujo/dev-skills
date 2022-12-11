@@ -33,7 +33,6 @@ const RegisterForm = ({registerNotify}) => {
     try{
 
       const response = await instance.post("users", formData)
-      console.log(response)
 
       if(response.status === 201){
         setRegisterStatus(true)

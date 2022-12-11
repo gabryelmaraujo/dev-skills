@@ -15,7 +15,7 @@ import { TechContext } from "../../contexts/TechContext";
 
 const LoginForm = ({loginNotify}) => {
     
-    const { setLoginStatus, setLoggedUser } = useContext(UserContext)
+    const { setLoginStatus, setLoggedUser, setLogged } = useContext(UserContext)
     const { setTechs } = useContext(TechContext)
 
     const navigate = useNavigate()
