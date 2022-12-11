@@ -11,6 +11,9 @@ import { ToastContainer } from "react-toastify";
 
 
 function App() {
+
+  document.title = 'Dev Skills'
+
   return (
     <div className="App">
       <ToastContainer autoClose={2000} />
