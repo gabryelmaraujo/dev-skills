@@ -11,9 +11,18 @@ import LoginPageContainer from "./styles";
 import LoginForm from "../../Components/LoginForm";
 import GoToRegisterBttn from "../../Components/GoToRegisterBttn";
 import { UserContext } from "../../contexts/UserContext";
+import { useEffect } from "react";
+
 
 const LoginPage = () => {
 
+    const { autoLoginFunction } = useContext(UserContext)
+
+    useEffect(()=>{
+        
+        autoLoginFunction()
+
+    },[autoLoginFunction])
 
     const loginNotify = (result) =>{
         if(result === "success"){
