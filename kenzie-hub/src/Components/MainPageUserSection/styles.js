@@ -15,6 +15,17 @@ const UserSectionStyles = styled.section`
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 620px){
+        .userSectionContainer{
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .userKenzieModule{
+            text-align: center;
+        }
     }
 
     .userSectionContainer p{

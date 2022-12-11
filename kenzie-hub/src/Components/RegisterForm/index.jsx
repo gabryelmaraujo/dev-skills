@@ -33,7 +33,6 @@ const RegisterForm = ({registerNotify}) => {
     try{
 
       const response = await instance.post("users", formData)
-      console.log(response)
 
       if(response.status === 201){
         setRegisterStatus(true)
@@ -123,7 +122,7 @@ const RegisterForm = ({registerNotify}) => {
       </select>
         {errors.course_module?.message && <p aria-label="error" className="inputError">{errors.course_module?.message}</p>}
       </div>
-      <RegisterButton registerStatus={registerStatus}/>
+      <RegisterButton/>
     </StyledForm>
   );
 };

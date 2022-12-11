@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import * as yup from "yup"
 import { useForm } from "react-hook-form";
@@ -10,9 +10,15 @@ import "./styles"
 import LoginFormStyled from "./styles"
 
 import instance from "../../services/api";
-import { useEffect } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { TechContext } from "../../contexts/TechContext";
 
-const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, loginNotify}) => {
+const LoginForm = ({loginNotify}) => {
+    
+    const { setLoginStatus, setLoggedUser, setLogged } = useContext(UserContext)
+    const { setTechs } = useContext(TechContext)
+
+    const navigate = useNavigate()
 
     const loginFormSchema = yup.object().shape({
         email: yup.string().required("É necessário um email!").email("O email não é valido!"),
@@ -39,6 +45,7 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, logi
                 loginNotify("success")
 
                 setLoggedUser(response.data.user)
+                setTechs(response.data.user.techs)
 
                 localStorage.setItem("@KenzieHub/userToken", userToken)
                 localStorage.setItem("@KenzieHub/userId", userId)
@@ -61,7 +68,6 @@ const LoginForm = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus, logi
         loginFunction(data)
     }
 
-    const navigate = useNavigate()
 
     return (
         <LoginFormStyled className="LoginForm" onSubmit={handleSubmit(loginSubmiter)} noValidate autoComplete="off">

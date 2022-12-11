@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-import "./styles"
-
 import logoImg from "../../assets/Logo.png"
-import LoginForm from "../../Components/LoginForm";
-import LoginPageContainer from "./styles";
-import GoToRegisterBttn from "../../Components/GoToRegisterBttn";
 
-const LoginPage = ({loggedUser, setLoggedUser, loginStatus, setLoginStatus}) => {
+import "./styles"
+import LoginPageContainer from "./styles";
+
+import LoginForm from "../../Components/LoginForm";
+import GoToRegisterBttn from "../../Components/GoToRegisterBttn";
+import { UserContext } from "../../contexts/UserContext";
+import { useEffect } from "react";
+
+
+const LoginPage = () => {
+
+    const { autoLoginFunction } = useContext(UserContext)
+
+    useEffect(()=>{
+        
+        autoLoginFunction()
+
+    },[autoLoginFunction])
 
     const loginNotify = (result) =>{
         if(result === "success"){
@@ -35,7 +48,7 @@ return (
                     <p>Login</p>
                 </header>
 
-                <LoginForm loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} loginNotify={loginNotify}/>
+                <LoginForm loginNotify={loginNotify}/>
 
                 <footer className="loginFormFooter">
                     <div className="formFooterTitleDiv">

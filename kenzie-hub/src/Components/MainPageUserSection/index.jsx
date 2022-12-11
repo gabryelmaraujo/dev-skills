@@ -1,8 +1,12 @@
+import { useContext } from "react"
+import { UserContext } from "../../contexts/UserContext"
 import UserSectionStyles from "./styles"
 
 
 
-const MainPageUserSection = ({loggedUser}) => {
+const MainPageUserSection = () => {
+
+    const { loggedUser } = useContext(UserContext)
 
     const userName = loggedUser.name
     const userModule = loggedUser.course_module
