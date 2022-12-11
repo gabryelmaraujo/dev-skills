@@ -16,9 +16,7 @@ export const UserProvider = ({ children }) => {
 
   async function autoLoginFunction(){
 
-
-
-    if(loggedUserToken.length > 0){
+    if(loggedUserToken){
         try{
             
             const response = await instance.get("profile", {
@@ -35,7 +33,10 @@ export const UserProvider = ({ children }) => {
             }
 
         }catch(error){
-            console.log(error)
+
+            localStorage.setItem("@KenzieHub/userToken", "");
+            localStorage.setItem("@KenzieHub/userId", "");
+
         }
 
     }
