@@ -24,17 +24,19 @@ export const TechProvider = ({ children }) => {
 
   
   async function getTechs() {
-    try {
-      const response = await instance.get("profile", {
-        headers:{
-          Authorization: `Bearer ${loggedUserToken}`
-        }
-      });
-      
-      setTechs(response.data.techs)
-      
-    } catch (error) {
-      console.log(error);
+    if(loggedUserToken){
+      try {
+        const response = await instance.get("profile", {
+          headers:{
+            Authorization: `Bearer ${loggedUserToken}`
+          }
+        });
+        
+        setTechs(response.data.techs)
+        
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -119,7 +121,6 @@ export const TechProvider = ({ children }) => {
       }
 
     }catch(error){
-      console.log(error)
     }
 
   }
