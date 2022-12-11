@@ -16,7 +16,7 @@
     "react-scripts": "^5.0.1",
     "react-toastify": "8.0.0",
     "styled-components": "^5.3.6",
-    "vercel": "^28.7.2",
+    "vercel": "^28.8.0",
     "web-vitals": "^2.1.0",
     "yup": "^0.32.11"
   },
